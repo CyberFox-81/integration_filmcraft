@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+  - SPDX-FileCopyrightText: 2026 Britton Couchman <brittondcouchman@gmail.com>
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>integration_filmcraft</id>
+	<name>FilmCraft integration</name>
+	<summary>Edit videos in Nextcloud with the FilmCraft video editor</summary>
+	<description><![CDATA[Open a video (MP4, MOV, WebM, MKV, MXF, MPEG-TS) or a FilmCraft project in Files with **Edit in FilmCraft** and edit right in the browser, the way you know from Premiere Pro: the timeline, trimming, transitions, effects, color, audio, titles and captions.
+
+- A video opens in a new project; **Save** stores the project (.fcproj) in the folder you pick, next to the video by default, and later saves go to that file.
+- Opening a saved project fetches its media from your Nextcloud.
+- Exports (renders) store the file in any folder you pick.
+- If someone else changes the project while you have it open, you choose whether to replace their version or save a copy.
+- Optionally, clicking a video or project in Files opens it in FilmCraft.
+
+FilmCraft runs entirely in your browser as WebAssembly. Files go only between your browser and your Nextcloud, and the server needs no extra software.
+
+This is a community integration based on [FilmCraft](https://github.com/storytold/filmcraft) by the ArtCraft team, an open-source, Rust-native video editor. It embeds a build of FilmCraft and is not made or endorsed by the ArtCraft team.
+
+**Requirements:** a browser with WebGPU or WebGL2, and a web server that serves `.wasm` files as `application/wasm` (Nextcloud's own Apache and nginx configurations do).]]></description>
+	<version>0.1.0</version>
+	<licence>agpl</licence>
+	<author mail="brittondcouchman@gmail.com" homepage="https://github.com/CyberFox-81">Britton Couchman</author>
+	<namespace>FilmCraftIntegration</namespace>
+	<category>multimedia</category>
+	<category>files</category>
+	<category>integration</category>
+	<website>https://github.com/CyberFox-81/integration_filmcraft</website>
+	<bugs>https://github.com/CyberFox-81/integration_filmcraft/issues</bugs>
+	<repository type="git">https://github.com/CyberFox-81/integration_filmcraft.git</repository>
+	<dependencies>
+		<nextcloud min-version="33" max-version="35"/>
+	</dependencies>
+</info>
