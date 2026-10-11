@@ -1,5 +1,5 @@
 diff --git a/apps/filmcraft-web/Cargo.toml b/apps/filmcraft-web/Cargo.toml
-index 6b1cb9e..15cd55e 100644
+index 6b1cb9ed..15cd55ef 100644
 --- a/apps/filmcraft-web/Cargo.toml
 +++ b/apps/filmcraft-web/Cargo.toml
 @@ -12,6 +12,10 @@ workspace = true
@@ -14,7 +14,7 @@ index 6b1cb9e..15cd55e 100644
  # and clippy stay cheap). Build with `cargo xtask web` (see docs/web.md).
  [target.'cfg(target_arch = "wasm32")'.dependencies]
 diff --git a/apps/filmcraft-web/src/fs.rs b/apps/filmcraft-web/src/fs.rs
-index 416fbf9..6dd0a5a 100644
+index 416fbf9d..6dd0a5ae 100644
 --- a/apps/filmcraft-web/src/fs.rs
 +++ b/apps/filmcraft-web/src/fs.rs
 @@ -99,6 +99,23 @@ pub fn register_blob(name: &str, blob: web_sys::Blob) -> String {
@@ -43,7 +43,7 @@ index 416fbf9..6dd0a5a 100644
      FS.with(|fs| fs.borrow_mut().entries.insert(path.to_string(), Entry::Mem(data.into())));
 diff --git a/apps/filmcraft-web/src/host.rs b/apps/filmcraft-web/src/host.rs
 new file mode 100644
-index 0000000..0a0ec13
+index 00000000..0a0ec130
 --- /dev/null
 +++ b/apps/filmcraft-web/src/host.rs
 @@ -0,0 +1,299 @@
@@ -347,7 +347,7 @@ index 0000000..0a0ec13
 +    web_sys::Blob::new_with_u8_array_sequence(&js_sys::Array::of1(&array)).ok()
 +}
 diff --git a/apps/filmcraft-web/src/import.rs b/apps/filmcraft-web/src/import.rs
-index 6b41a2c..dadccc1 100644
+index 6b41a2cd..dadccc13 100644
 --- a/apps/filmcraft-web/src/import.rs
 +++ b/apps/filmcraft-web/src/import.rs
 @@ -103,6 +103,14 @@ async fn import_path(path: String, bin: u64) -> Result<Value, String> {
@@ -366,7 +366,7 @@ index 6b41a2c..dadccc1 100644
  pub async fn import_files(files: Vec<web_sys::File>) -> Value {
      // Capture once per batch: navigation while prewarming must not redirect pending imports.
 diff --git a/apps/filmcraft-web/src/lib.rs b/apps/filmcraft-web/src/lib.rs
-index 21512cc..659afdb 100644
+index 21512ccc..659afdb1 100644
 --- a/apps/filmcraft-web/src/lib.rs
 +++ b/apps/filmcraft-web/src/lib.rs
 @@ -14,6 +14,9 @@
@@ -443,10 +443,10 @@ index 21512cc..659afdb 100644
      // keep the runner alive for the page's lifetime
      std::mem::forget(runner);
 diff --git a/crates/ui-egui/Cargo.toml b/crates/ui-egui/Cargo.toml
-index 4a99b17..1c3e866 100644
+index 950c22ac..c540b3af 100644
 --- a/crates/ui-egui/Cargo.toml
 +++ b/crates/ui-egui/Cargo.toml
-@@ -55,3 +55,8 @@ egui_kittest = { workspace = true, features = ["eframe", "wgpu"] }
+@@ -56,3 +56,8 @@ egui_kittest = { workspace = true, features = ["eframe", "wgpu"] }
  [build-dependencies]
  serde_json = { workspace = true }
  toml = "1"
@@ -456,7 +456,7 @@ index 4a99b17..1c3e866 100644
 +# (docs/brand/LICENSE-brand.txt).
 +unbranded = []
 diff --git a/crates/ui-egui/src/brand.rs b/crates/ui-egui/src/brand.rs
-index 4c41d08..890d579 100644
+index 4c41d080..890d5791 100644
 --- a/crates/ui-egui/src/brand.rs
 +++ b/crates/ui-egui/src/brand.rs
 @@ -1,11 +1,21 @@
