@@ -347,7 +347,7 @@ index 00000000..0a0ec130
 +    web_sys::Blob::new_with_u8_array_sequence(&js_sys::Array::of1(&array)).ok()
 +}
 diff --git a/apps/filmcraft-web/src/import.rs b/apps/filmcraft-web/src/import.rs
-index 6b41a2cd..dadccc13 100644
+index a075f9a9..17308984 100644
 --- a/apps/filmcraft-web/src/import.rs
 +++ b/apps/filmcraft-web/src/import.rs
 @@ -103,6 +103,14 @@ async fn import_path(path: String, bin: u64) -> Result<Value, String> {
