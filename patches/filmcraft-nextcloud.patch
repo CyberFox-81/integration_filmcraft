@@ -443,10 +443,10 @@ index 21512ccc..659afdb1 100644
      // keep the runner alive for the page's lifetime
      std::mem::forget(runner);
 diff --git a/crates/ui-egui/Cargo.toml b/crates/ui-egui/Cargo.toml
-index 950c22ac..c540b3af 100644
+index b63880d4..88c6df82 100644
 --- a/crates/ui-egui/Cargo.toml
 +++ b/crates/ui-egui/Cargo.toml
-@@ -56,3 +56,8 @@ egui_kittest = { workspace = true, features = ["eframe", "wgpu"] }
+@@ -58,3 +58,8 @@ egui_kittest = { workspace = true, features = ["eframe", "wgpu"] }
  [build-dependencies]
  serde_json = { workspace = true }
  toml = "1"

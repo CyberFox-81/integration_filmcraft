@@ -23,7 +23,7 @@
 set -euo pipefail
 
 APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-FILMCRAFT_REF="${FILMCRAFT_REF:-4e2d0bc2d3646f9cf27ef7aa8b2095c6858c7efe}"
+FILMCRAFT_REF="${FILMCRAFT_REF:-3fdaa813e044dc35a186c664d1f27fa9cf548cf5}"
 SRC="${1:-$APP_DIR/build/filmcraft}"
 PATCH="$APP_DIR/patches/filmcraft-nextcloud.patch"
 OUT="$APP_DIR/web"
@@ -35,9 +35,12 @@ if [ ! -e "$SRC/.git" ]; then
 fi
 
 if grep -rq 'filmcraft:ready' "$SRC/apps/filmcraft-web/src"; then
-	echo "bridge patch already applied"
-else
+	echo "FilmCraft has the embedding bridge"
+elif [ -s "$PATCH" ]; then
 	git -C "$SRC" apply "$PATCH"
+else
+	echo "error: this FilmCraft has no embedding bridge, and there is no patch to add it" >&2
+	exit 1
 fi
 
 cargo_args=(build --profile release -p filmcraft-web --target wasm32-unknown-unknown --features unbranded)

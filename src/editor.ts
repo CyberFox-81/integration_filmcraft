@@ -69,7 +69,7 @@ let openByDefault = loadState<boolean>(APP, 'openByDefault', false)
  * Formats that keep the whole project. Saving in one of them can make that file the project's
  * file; anything else (PDF, PNG…) is an export, a copy that leaves the project where it is.
  */
-const DOCUMENT_EXTENSIONS = new Set(['.fcproj'])
+const DOCUMENT_EXTENSIONS = new Set<string>(['.fcproj'])
 
 /**
  * Where a plain Save goes, by the file name FilmCraft saves under: the opened file's name at
