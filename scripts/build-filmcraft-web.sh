@@ -23,7 +23,7 @@
 set -euo pipefail
 
 APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-FILMCRAFT_REF="${FILMCRAFT_REF:-09aaf9bf15d510eda1c413c0ccabb1d7e08b41c5}"
+FILMCRAFT_REF="${FILMCRAFT_REF:-e8253fff50b45ce2b2f4c0dfc98585b47d0d7049}"
 SRC="${1:-$APP_DIR/build/filmcraft}"
 PATCH="$APP_DIR/patches/filmcraft-nextcloud.patch"
 OUT="$APP_DIR/web"
